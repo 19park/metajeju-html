@@ -18,13 +18,17 @@
     background-color: #F2F2F2;
     padding: 40px 0;
 }
+.notice .container-jt {
+    max-width: 90%;
+}
 .notice .section-header h3 {
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .notice .notice-container p {
     position: relative;
     padding-left: 15px;
+    font-weight: 600;
 }
 .notice .notice-container p::before {
     content: "•";
@@ -68,12 +72,11 @@
 }
 
 @media (min-width: 992px) {
+    .notice .container-jt {
+        max-width: 940px;
+    }
     .site-navbar .site-navigation .site-menu > li > a {
         padding: 5px 20px;
-    }
-
-    .btn__share {
-        display: block;
     }
 }
 

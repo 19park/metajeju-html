@@ -202,18 +202,12 @@ ul, li {
 .site-footer {
     padding: 30px 0;
     color: #323232;
-    background: #DDDDDD;
+    background: #fff;
     font-size: 14px;
 }
 
 .site-footer .border-top {
     border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
-}
-
-.site-footer .logo-footer {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
 }
 
 .site-footer p {
