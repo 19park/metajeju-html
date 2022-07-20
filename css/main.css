@@ -153,6 +153,7 @@
 }
 .third .site-section__item-title {
     margin-bottom: 30px;
+    text-align: center;
 }
 .third .site-section__item-thumbs {
     display: flex;
