@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700;900&family=Poppins:wght@100;300;400;600;700&display=swap');
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 @font-face {
     font-family: 'Cafe24Ohsquare';
@@ -15,7 +14,7 @@ body {
     background-color: #fff;
     font-weight: 400;
     font-size: 1rem;
-    font-family: 'Noto Sans KR', 'Pretendard', AppleSDGothicNeo, sans-serif;
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
     min-width: 320px;
 }
 
@@ -155,7 +154,7 @@ ul, li {
 .form-control {
     height: 43px;
     border-radius: 30px;
-    font-family: "Noto Sans KR", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .form-control:active, .form-control:focus {
@@ -430,7 +429,7 @@ ul, li {
     z-index: 1999;
     position: absolute;
     width: 100%;
-    font-family: 'Noto Sans KR', AppleSDGothicNeo, sans-serif;
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
 }
 
 .site-navbar .site-logo {
@@ -632,7 +631,7 @@ ul, li {
     transition: .3s all ease-in-out;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    font-family: 'Noto Sans KR', AppleSDGothicNeo, sans-serif;
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
 }
 .site-mobile-menu__overlay {
     position: fixed;
@@ -769,7 +768,7 @@ ul, li {
     margin-bottom: 1.5rem;
 }
 .site-mobile-menu-footer ul.content--list>li>a {
-    font-family: 'Noto Sans KR', AppleSDGothicNeo, sans-serif;
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
     display: block;
     color: #fff;
     font-size: 1.2rem;
@@ -860,7 +859,7 @@ ul, li {
 }
 
 .site-mobile-menu .site-nav-wrap > li > a {
-    font-family: 'Noto Sans KR', AppleSDGothicNeo, sans-serif;
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
     padding-left: 0;
     padding-right: 0;
     font-size: 4vw;
@@ -868,10 +867,6 @@ ul, li {
 }
 .site-mobile-menu .site-nav-wrap > li > a::before {
     content: "";
-    background-image: url(../images/main/mobile/bullet.png);
-    background-size: 30px;
-    width: 30px;
-    height: 30px;
     margin-right: 15px;
     vertical-align: middle;
     display: inline-block;

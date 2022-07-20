@@ -7,20 +7,10 @@
 }
 .site-section .container-jt {
     max-width: 940px;
-    padding: 0 5%;
     margin: 0 auto;
 }
-.visual {
-    position: absolute;
-    z-index: 10;
-}
-
-.btn__share {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    display: none;
-    animation: shake-animation 4.72s ease infinite;
+.font-family-cafe24 {
+    font-family: 'Cafe24Ohsquare', AppleSDGothicNeo, sans-serif;
 }
 
 
@@ -67,10 +57,6 @@
 }
 
 @media (min-width: 768px) {
-    .site-section .container-jt {
-        padding: 0 50px;
-    }
-
     .site-navbar .site-navigation .site-menu > li > a {
         padding: 5px 10px;
         letter-spacing: -.05rem;
