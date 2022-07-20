@@ -1,0 +1,113 @@
+.site-section {
+    position: relative;
+    padding: 0;
+}
+.site-section p {
+    margin-bottom: 0;
+}
+.site-section .container-jt {
+    max-width: 940px;
+    padding: 0 5%;
+    margin: 0 auto;
+}
+.visual {
+    position: absolute;
+    z-index: 10;
+}
+
+.btn__share {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: none;
+    animation: shake-animation 4.72s ease infinite;
+}
+
+
+.notice {
+    background-color: #F2F2F2;
+    padding: 40px 0;
+}
+.notice .section-header h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.notice .notice-container p {
+    position: relative;
+    padding-left: 15px;
+}
+.notice .notice-container p::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+
+@media (min-width: 420px) {
+    .site-mobile-menu .site-mobile-menu-header {
+        font-size: 5vw;
+    }
+    .site-mobile-menu .site-nav-wrap > li > a {
+        font-size: 4vw;
+    }
+}
+
+@media (min-width: 576px) {
+    .container {
+        max-width: 100%;
+    }
+    .site-mobile-menu .site-mobile-menu-header {
+        font-size: 30px;
+    }
+    .site-mobile-menu .site-nav-wrap > li > a {
+        font-size: 26px;
+    }
+}
+
+@media (min-width: 768px) {
+    .site-section .container-jt {
+        padding: 0 50px;
+    }
+
+    .site-navbar .site-navigation .site-menu > li > a {
+        padding: 5px 10px;
+        letter-spacing: -.05rem;
+    }
+
+    .notice {
+        padding: 55px 0;
+    }
+}
+
+@media (min-width: 992px) {
+    .site-navbar .site-navigation .site-menu > li > a {
+        padding: 5px 20px;
+    }
+
+    .btn__share {
+        display: block;
+    }
+}
+
+@media (min-width: 1199.98px) {
+    .container {
+        max-width: 940px;
+    }
+    header .container {
+        max-width: 1010px;
+    }
+}
+
+
+@keyframes shake-animation {
+    0% { transform:translate(0,0) }
+    1.78571% { transform:translate(5px,0) }
+    3.57143% { transform:translate(0,0) }
+    5.35714% { transform:translate(5px,0) }
+    7.14286% { transform:translate(0,0) }
+    8.92857% { transform:translate(5px,0) }
+    10.71429% { transform:translate(0,0) }
+    100% { transform:translate(0,0) }
+}
