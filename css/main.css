@@ -276,6 +276,63 @@
 
 
 
+.six {
+    padding: 50px 5.5% 70px 5.5%;
+}
+.six .section-header {
+    margin-bottom: 40px;
+}
+.six .section-header h3 {
+    font-size: 40px;
+}
+.six #accordion {
+    border-top: 2px solid #C8C8C8;
+}
+.six .six-faq-card {
+    font-family: 'Pretendard', AppleSDGothicNeo, sans-serif;
+}
+.six .six-faq-card .six-faq-card--header {
+    border-bottom: 1px solid #C8C8C8;
+    padding: 25px 25px 25px 15.625%;
+    position: relative;
+}
+.six .six-faq-card .six-faq-card--header::before {
+    content: "Q.";
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    top: 25px;
+    left: 25px;
+}
+.six .six-faq-card .six-faq-card--header::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 50%;
+    margin-top: -9px;
+    right: 25px;
+    background-image: url(../images/main/icon_down.png);
+    background-repeat: no-repeat;
+    background-size: 18px;
+}
+.six .six-faq-card .six-faq-card--header button.btn-link {
+    padding: 0;
+    color: #323232;
+    text-decoration: none;
+    font-size: 3vw;
+    font-weight: 600;
+}
+.six .six-faq-card .six-faq-card--body {
+    color: #808080;
+    background-color: #F9F9F9;
+    padding: 25px 25px 25px 15.625%;
+    font-size: 3vw;
+}
+.six .six-faq-card .six-faq-card--header.active::after {
+    background-image: url(../images/main/icon_up.png);
+}
+
 
 
 
@@ -431,6 +488,27 @@
         font-size: 24px;
         padding: 30px 0;
         max-width: 360px;
+    }
+
+
+
+    .six {
+        padding: 70px 0 90px 0;
+    }
+    .six .six-faq-card .six-faq-card--header {
+        padding: 25px 100px;
+    }
+    .six .six-faq-card .six-faq-card--body {
+        padding: 25px 100px;
+        font-size: 18px;
+    }
+    .six .six-faq-card .six-faq-card--header::before {
+        font-size: 18px;
+        top: 25px;
+        left: 25px;
+    }
+    .six .six-faq-card .six-faq-card--header button.btn-link {
+        font-size: 18px;
     }
 }
 
