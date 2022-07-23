@@ -202,7 +202,7 @@
             <img src="./images/main/bg.four.png" class="d-none d-lg-block" alt=""/>
             <img src="./images/main/mobile/bg.four.png" class="w-100 d-lg-none" alt=""/>
 
-            <a href="#" class="btn-gradient btn-check">추천 여행지 확인</a>
+            <a href="sub.html" class="btn-gradient btn-check">추천 여행지 확인</a>
         </div>
     </div>
 
@@ -214,11 +214,11 @@
           <div class="site-section__content">
             <img src="./images/main/title.five.png" class="d-none d-lg-inline-block" alt="힙쟁이 제이티의 일상이 궁금하다면?"/>
 
-            <a href="#" class="btn-insta"><img src="./images/main/icon_insta.png" class="w-100" alt="인스타그램"/></a>
-            <a href="#" class="btn-youtube"><img src="./images/main/icon_youtube.png" class="w-100" alt="유투브"/></a>
+            <a href="http://instagram.com" target="_blank" class="btn-insta"><img src="./images/main/icon_insta.png" class="w-100" alt="인스타그램"/></a>
+            <a href="http://youtube.com" target="_blank" class="btn-youtube"><img src="./images/main/icon_youtube.png" class="w-100" alt="유투브"/></a>
 
-            <a href="#" class="btn-check-point font-family-cafe24">나의 제이티 마일리지 확인</a>
-            <a href="#" class="btn-check-winners font-family-cafe24">전체 당첨자 확인</a>
+            <a href="javascript:showModalMiliage();" class="btn-check-point font-family-cafe24">나의 제이티 마일리지 확인</a>
+            <a href="javascript:showModalWinners();" class="btn-check-winners font-family-cafe24">전체 당첨자 확인</a>
           </div>
         </div>
     </div>
@@ -360,42 +360,88 @@
     </footer>
 
 
-
-
-    <div id="modal-share" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div id="modal-check-mileage" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22.628" height="22.628" viewBox="0 0 22.628 22.628">
-                            <g id="btn_close" transform="translate(-353.936 -546.269) rotate(45)">
-                                <path id="path_35" data-name="path 35" d="M5201.061,121v30" transform="translate(-4548.52 0)" fill="none" stroke="#323232" stroke-width="2"/>
-                                <path id="path_36" data-name="path 36" d="M0,0V30" transform="translate(667.541 136) rotate(90)" fill="none" stroke="#323232" stroke-width="2"/>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14.849" height="14.849" viewBox="0 0 14.849 14.849">
+                            <g id="icon_close" transform="translate(-609.172 -1166.373) rotate(45)">
+                                <path id="path_23" data-name="path_23" d="M4818,3024v20" transform="translate(-3552 -2640)" fill="none" stroke="#707070" stroke-width="1"/>
+                                <path id="path_24" data-name="path_24" d="M0,0V20" transform="translate(1276 394) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
                             </g>
                         </svg>
                     </button>
                 </div>
-                <div class="modal-body">
-                    <p>JT친애저축은행 공식 SNS 채널로 놀러가개 🐶</p>
+                <div class="modal-body text-center">
+                    <h3 class="font-family-cafe24">나의 제이티 마일리지 확인</h3>
 
-                    <ul class="share__container">
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/insta.png" alt="인스타그램" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/facebook.png" alt="페이스북" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/youtube.png" alt="유투브" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/mail.png" alt="메일" /></a>
-                        </li>
-                    </ul>
+                    <form name="form1" method="get" onsubmit="return false;">
+                        <div class="input-row">
+                            <input type="text" name="USR_NAME" placeholder="이름"/>
+                        </div>
+                        <div class="input-row">
+                            <input type="text" name="USR_NICKNAME" placeholder="닉네임"/>
+                        </div>
+                        <div class="input-row">
+                            <input type="tel" name="USR_PHONE" placeholder="연락처"/>
+                        </div>
+
+                        <a href="#" class="btn-check-mileage font-family-cafe24">마일리지 확인</a>
+                    </form>
+                    <p class="mileage-notice">✔️︎︎ 제이티 마일리지는 매주 화요일 오전 11시 일괄 적립됩니다.</p>
+
+                    <div class="usr-mileage-container">
+                        <p>
+                            <span class="text-usr-name">000</span>님의 제이티 마일리지 :
+                        </p>
+                        <span class="text-mileage">3,500</span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div id="modal-check-winners" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14.849" height="14.849" viewBox="0 0 14.849 14.849">
+                            <g id="icon_close" transform="translate(-609.172 -1166.373) rotate(45)">
+                                <path id="path_23" data-name="path_23" d="M4818,3024v20" transform="translate(-3552 -2640)" fill="none" stroke="#707070" stroke-width="1"/>
+                                <path id="path_24" data-name="path_24" d="M0,0V20" transform="translate(1276 394) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
+                            </g>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h3 class="font-family-cafe24">상상제주 당첨자 발표</h3>
+
+                    <form name="form1" method="get" onsubmit="return false;">
+                        <div class="input-row">
+                            <input type="tel" name="USR_PHONE" placeholder="휴대폰 뒤 4자리 입력" maxlength="4"/>
+                            <button type="button" class="btn-search">
+                                <img src="./images/modal/icon_search.png" alt="검색"/>
+                            </button>
+                        </div>
+                    </form>
+
+                    <h4>[ 8월 제이티 마일리지 당첨자 ]</h4>
+                    <div class="winner-container">
+                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234<br/>
+                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234
+                    </div>
+                    <h4>[ 8월 힙쟁이 페스티벌 ]</h4>
+                    <div class="winner-container">
+                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234<br/>
+                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 </div> <!-- .site-wrap -->
 
@@ -421,15 +467,21 @@
             $third_event_container.attr("data-idx", getIdx);
         });
 
-        $('.collapse').on('hide.bs.collapse', function () {
+        $(".collapse").on('hide.bs.collapse', function () {
             $(this).siblings(".six-faq-card--header").removeClass("active");
         });
 
-        $('.collapse').on('show.bs.collapse', function () {
+        $(".collapse").on('show.bs.collapse', function () {
             $(this).siblings(".six-faq-card--header").addClass("active");
-
         });
     });
+
+    function showModalMiliage() {
+        $("#modal-check-mileage").modal('show');
+    }
+    function showModalWinners() {
+        $("#modal-check-winners").modal('show');
+    }
 </script>
 </body>
 </html>

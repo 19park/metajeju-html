@@ -80,36 +80,50 @@
     </div>
 
 
-    <div id="modal-share" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
+    <div id="modal-event" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22.628" height="22.628" viewBox="0 0 22.628 22.628">
-                            <g id="btn_close" transform="translate(-353.936 -546.269) rotate(45)">
-                                <path id="path_35" data-name="path 35" d="M5201.061,121v30" transform="translate(-4548.52 0)" fill="none" stroke="#323232" stroke-width="2"/>
-                                <path id="path_36" data-name="path 36" d="M0,0V30" transform="translate(667.541 136) rotate(90)" fill="none" stroke="#323232" stroke-width="2"/>
-                            </g>
-                        </svg>
-                    </button>
+                <div class="modal-visual">
+                    <img src="./images/modal/visual.event.png" alt=""/>
                 </div>
                 <div class="modal-body">
-                    <p>JT친애저축은행 공식 SNS 채널로 놀러가개 🐶</p>
+                    <div class="modal-body__header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14.849" height="14.849" viewBox="0 0 14.849 14.849">
+                                <g id="icon_close" transform="translate(-609.172 -1166.373) rotate(45)">
+                                    <path id="path_23" data-name="path_23" d="M4818,3024v20" transform="translate(-3552 -2640)" fill="none" stroke="#707070" stroke-width="1"/>
+                                    <path id="path_24" data-name="path_24" d="M0,0V20" transform="translate(1276 394) rotate(90)" fill="none" stroke="#707070" stroke-width="1"/>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="modal-body__content">
+                        <div class="modal-body__content--top">
+                            <h3 class="font-family-cafe24">
+                                당신의 과수원
+                                <a href="javascript:;" class="btn-share">
+                                    <img src="./images/modal/icon_share.png" alt="공유하기"/>
+                                </a>
+                            </h3>
+                            <p>9~11월에 오면 귤이 더 달아 맛있는 “당신의 과수원”</p>
+                            <p>#연인과함께 #데이트장소 #주차공간 #펫여행</p>
+                        </div>
+                        <div class="modal-body__content--middle">
+                            <h4 class="font-family-cafe24">제이티's 여행 꿀팁</h4>
+                            <p>당신의 과수원은 정해진 바구니에 꽉 담아서 귤을 따면​
+                                집에 가져갈 수 있어요~ 게다가 바구니를 가장 먼저
+                                채운 사람에게는 보너스 귤을 추가해준답니다!</p>
+                            <h4 class="font-family-cafe24">추천 링크</h4>
+                            <p>당신의 과수원을 한 눈에 볼 수 있게 모아봤어요!​
+                                과수원이 마음에 든다면 상단의 하트를 꾹! 눌러볼까요?</p>
 
-                    <ul class="share__container">
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/insta.png" alt="인스타그램" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/facebook.png" alt="페이스북" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/youtube.png" alt="유투브" /></a>
-                        </li>
-                        <li>
-                            <a href="#" target="_blank"><img src="./images/main/mail.png" alt="메일" /></a>
-                        </li>
-                    </ul>
+                            <img src="./images/modal/thumb.png" alt=""/>
+                        </div>
+                        <div class="modal-body__content--bottom">
+                            <p><span>주소</span> 제주도 제주시 당신의 과수원동</p>
+                            <p><span>영업시간</span> 09:00 -18:00</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,7 +140,7 @@
 
 <script src="./js/main.js"></script>
 <script type="text/javascript">
-
+    $("#modal-event").modal("show");
 </script>
 </body>
 </html>
