@@ -99,6 +99,13 @@
         margin: 5px 5px 10px 5px;
         width: auto;
     }
+
+    .first .site-section__gallery>li:nth-of-type(2n-1) {
+        margin-left: 5px;
+    }
+    .first .site-section__gallery>li:nth-of-type(2n) {
+        margin-right: 5px;
+    }
 }
 
 
