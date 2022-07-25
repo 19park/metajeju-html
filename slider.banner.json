@@ -1,0 +1,17 @@
+[
+  {
+    "id": 1,
+    "imgPath": "https://eksug.cafe24.com/dev/images/main/banner.png",
+    "imgPathMb": "https://eksug.cafe24.com/dev/images/main/mobile/banner.png"
+  },
+  {
+    "id": 2,
+    "imgPath": "https://eksug.cafe24.com/dev/images/main/banner.png",
+    "imgPathMb": "https://eksug.cafe24.com/dev/images/main/mobile/banner.png"
+  },
+  {
+    "id": 3,
+    "imgPath": "https://eksug.cafe24.com/dev/images/main/banner.png",
+    "imgPathMb": "https://eksug.cafe24.com/dev/images/main/mobile/banner.png"
+  }
+]

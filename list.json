@@ -1,0 +1,46 @@
+{
+  "pagination": {
+    "totalElements": 24,
+    "pageNumber": 1,
+    "pageSize": 9,
+    "totalPages": 3
+  },
+  "list": [
+    {
+      "id": 1,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item01.png"
+    },
+    {
+      "id": 2,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item02.png"
+    },
+    {
+      "id": 3,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item03.png"
+    },
+    {
+      "id": 4,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item04.png"
+    },
+    {
+      "id": 5,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item05.png"
+    },
+    {
+      "id": 6,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item06.png"
+    },
+    {
+      "id": 7,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item07.png"
+    },
+    {
+      "id": 8,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item08.png"
+    },
+    {
+      "id": 9,
+      "imgPath": "https://eksug.cafe24.com/dev/images/sub/item09.png"
+    }
+  ]
+}

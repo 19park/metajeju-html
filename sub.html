@@ -75,9 +75,45 @@
                    <li><img src="./images/sub/item08.png" alt=""/></li>
                    <li><img src="./images/sub/item09.png" alt=""/></li>
                 </ul>
+
+                <div class="loader"></div>
             </div>
         </div>
     </div>
+
+    <div class="site-section notice" id="notice-section">
+      <div class="container-jt">
+        <div class="section-header">
+          <h3>유의 사항</h3>
+        </div>
+        <div class="notice-container">
+          <p>제이티 마일리지 적립은 본 홈페이지를 통해서만 적립 신청이 가능합니다.​</p>
+          <p>본 이벤트는 당사 사정에 따라 변경 또는 중단될 수 있습니다.​​</p>
+          <p>참여하신 인증 사진은 제주관광협회의 마케팅 컨텐츠로 활용될 수 있습니다.​​</p>
+          <p>비정상적 방법(이미지 도용, 중복 등)을 통한 콘테스트 참여자는 이벤트 당첨자 선정에서​ 제외되며,
+            당첨 후에도 당첨 취소 및 경품 회수 등의 불이익을 받을 수 있습니다.​​</p>
+          <p>이벤트 내용 및 경품, 당첨자 발표일은 당사 사정에 따라 변동 또는 지연될 수 있습니다.​​</p>
+          <p>이벤트 당첨자 발표 후, 본 캠페인의 운영대행사에서 경품 배송을 위한 주소 등의 개인 정보 제출을​
+            요청드리며, 요청 후 7일 이내 개인 정보 미회신 시에는 당첨이 취소됩니다.​​</p>
+          <p>취합된 개인 정보는 경품 배송 이외의 목적으로 활용되지 않으며, 수집된 개인 정보는 이용 목적 달성 즉시 파기됩니다.​​</p>
+          <p>경품 배송은 국내배송만 가능하며, 잘못된 개인 정보 입력으로 인한 배송 오류는 책임지지 않습니다.​​</p>
+          <p>5만원 초과 경품에 대한 제세공과금(22%)는 당첨자 본인 부담입니다.</p>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-3 logo-footer text-center">
+            <img src="./images/main/logo.png" alt="로고 이미지"/>
+          </div>
+          <div class="col-12 col-md-9 text-center text-md-right pt-2 pt-md-0">
+            <p>Copyright 2022 제주특별자치도관광협회 All rights reserved</p>
+          </div>
+        </div>
+      </div>
+    </footer>
 
 
     <div id="modal-event" class="modal fade" data-backdrop="static" data-keyboard="false" tabindex="-1">
@@ -140,7 +176,114 @@
 
 <script src="./js/main.js"></script>
 <script type="text/javascript">
-    $("#modal-event").modal("show");
+    var $first_section = $("#first-section");
+    var $notice_section = $("#notice-section");
+    var beforeScrollTop = null;
+
+    $(function() {
+      $("#modal-event").modal("show");
+
+      function onScroll() {
+        if (window.pageYOffset + window.innerHeight >=
+          document.documentElement.scrollHeight - ($notice_section.outerHeight() + $("footer").outerHeight() + $(".loader").outerHeight() + 50)
+        ) {
+          console.log("scroll checked..");
+          beforeScrollTop = $(window).scrollTop();
+          fetchJoinerList();
+        }
+      }
+      window.addEventListener("scroll", throttle(onScroll, 1000));
+    });
+
+    $(window).on("load", function () {
+      // 리스트 로딩 (1페이지)
+      fetchJoinerList();
+    });
+
+    /**
+     * 참여자 명단가져오기
+     */
+    var page = 1, isComplete = false;
+    var isLoadingList = false;
+    function fetchJoinerList() {
+      if (isLoadingList || isComplete) return;
+
+      isLoadingList = true;
+      var $list_container = $first_section.find(".site-section__gallery");
+      var params = Object.assign({
+        pageNumber: page,
+      });
+
+      if (!$first_section.find(".loader").is(":visible")) {
+        $first_section.find(".loader").show();
+      }
+
+      $.ajax({
+        method: 'get',
+        url: "./list.json",
+        data: params,
+        dataType: 'json',
+        success: function (data) {
+          var results = data.list;
+          var pagination = data.pagination;
+          var getPageNumber = Number(pagination.pageNumber);
+          var getTotalPages = Number(pagination.totalPages);
+
+          if (results.length) {
+            results.forEach(function (e) {
+              var el = '<li>' +
+                '   <img src="'+ e.imgPath +'" alt=""/>' +
+                '</li>';
+              var $el = $(el);
+              $el.appendTo($list_container);
+            });
+
+            // 추가 스크롤 로딩을 위해서 이전 스크롤위치값으로 강제 이동
+            if (beforeScrollTop) {
+              $("html, body").animate({
+                scrollTop: beforeScrollTop
+              }, 0);
+            }
+          } else {
+            var $el = $('<li class="list__item-empty">등록 된 이미지가 없습니다.</li>');
+            $el.appendTo($list_container);
+
+            isComplete = true;
+          }
+
+          // 마지막 페이지 체크
+          if (page >= getTotalPages) {
+            isComplete = true;
+          }
+
+          page++;
+        },
+        error: function (xhr) {
+          console.log(xhr.responseText);
+          $first_section.find(".loader").hide();
+          alert("지금은 시스템 사정으로 인하여 요청하신 작업이 이루어지지 않았습니다.\n잠시후 다시 이용하세요.");
+        },
+        complete: function () {
+          isLoadingList = false;
+
+          if (isComplete) {
+            $first_section.find(".loader").hide();
+          }
+        }
+      });
+    }
+
+    function throttle(fn, delay) {
+      let timer;
+      return function(){
+        if(!timer) {
+          timer = setTimeout(()=>{
+            timer = null;
+            fn.apply(this,arguments)
+          }, delay)
+        }
+      }
+    }
 </script>
 </body>
 </html>

@@ -21,6 +21,7 @@
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/main.css">
@@ -54,8 +55,18 @@
             </div>
 
             <div class="banner-container">
-                <img src="./images/main/banner.png" class="d-none d-lg-block" alt=""/>
-                <img src="./images/main/mobile/banner.png" class="w-100 d-lg-none" alt=""/>
+                <div class="swiper-container banner-swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="./images/main/banner.png" class="d-none d-lg-block" alt=""/>
+                            <img src="./images/main/mobile/banner.png" class="w-100 d-lg-none" alt=""/>
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="./images/main/banner.png" class="d-none d-lg-block" alt=""/>
+                            <img src="./images/main/mobile/banner.png" class="w-100 d-lg-none" alt=""/>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -419,7 +430,7 @@
                     <h3 class="font-family-cafe24">상상제주 당첨자 발표</h3>
 
                     <form name="form1" method="get" onsubmit="return false;">
-                        <div class="input-row">
+                        <div class="input-row search-container">
                             <input type="tel" name="USR_PHONE" placeholder="휴대폰 뒤 4자리 입력" maxlength="4"/>
                             <button type="button" class="btn-search">
                                 <img src="./images/modal/icon_search.png" alt="검색"/>
@@ -427,15 +438,8 @@
                         </div>
                     </form>
 
-                    <h4>[ 8월 제이티 마일리지 당첨자 ]</h4>
                     <div class="winner-container">
-                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234<br/>
-                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234
-                    </div>
-                    <h4>[ 8월 힙쟁이 페스티벌 ]</h4>
-                    <div class="winner-container">
-                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234<br/>
-                        제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234&nbsp;&nbsp;&nbsp;제이티/1234
+
                     </div>
                 </div>
             </div>
@@ -451,12 +455,23 @@
 <script src="./js/popper.min.js"></script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/jquery.sticky.js"></script>
+<script src="./js/swiper.min.js"></script>
+<script src="./js/jquery.blockUI.js"></script>
 
 <script src="./js/main.js"></script>
 <script type="text/javascript">
     var $third_section = $("#third-section");
     var $third_section_tabs = $third_section.find(".site-section__tabs");
     var $third_event_container = $third_section.find(".site-section__content");
+
+    var $modal_winners = $("#modal-check-winners");
+    var $modal_winners_searchbar = $modal_winners.find(".search-container");
+    var $modal_winners_list = $modal_winners.find(".winner-container");
+
+    var bannerSwiper = new Swiper(".banner-swiper", {
+        spaceBetween: 0,
+        // autoHeight: true,
+    });
 
     $(function () {
         $third_section_tabs.find(">a").on("click", function (e) {
@@ -474,6 +489,23 @@
         $(".collapse").on('show.bs.collapse', function () {
             $(this).siblings(".six-faq-card--header").addClass("active");
         });
+
+        // 챌린지 당첨자 팝업 오픈시 이벤트 정의
+        $modal_winners.on('shown.bs.modal', function () {
+            $modal_winners_searchbar.find("input").val("");
+            fetchWinnerList();
+        });
+        $modal_winners_searchbar.find("input").keyup(function(e) {
+            if (e.keyCode === 13) {
+                findTextWithHighlight($modal_winners_list, e.target.value);
+            }
+        });
+        $modal_winners_searchbar.find(".btn-search").on("click", function(e) {
+            e.preventDefault();
+            findTextWithHighlight($modal_winners_list, $(this).siblings("input").val());
+        });
+
+        fetchBannerImages();
     });
 
     function showModalMiliage() {
@@ -481,6 +513,86 @@
     }
     function showModalWinners() {
         $("#modal-check-winners").modal('show');
+    }
+
+
+    function fetchWinnerList() {
+        $modal_winners_list.empty();
+        $.ajax({
+            method: 'get',
+            url: './winners.json',
+            dataType: 'json',
+            success: function (res) {
+                $modal_winners_list.data("origin", res.list);
+                $modal_winners_list.html(res.list);
+            },
+            error: function () {
+                alert("지금은 시스템 사정으로 인하여 요청하신 작업이 이루어지지 않았습니다.\n잠시후 다시 이용하세요.[0]");
+            }
+        });
+    }
+
+    function findTextWithHighlight($target, text) {
+        if (!text || text.length < 2) return;
+        var dataOrigin = $target.data("origin");
+        $target.html(dataOrigin);
+
+        var filterText = text.replace(/[\{\}\[\]\/?.,;:|\)*~`!^\-+<>\#$%&\\\=\(\'\"]/gi, "");
+        $target.html(dataOrigin.replace(new RegExp(filterText,"gi"), "<span class='highlight'>$&</span>"));
+        var offset = $target.find(".highlight").position();
+
+        if ($target.find(".highlight").length) {
+            var topPos = offset.top;
+            $target.scrollTop(topPos);
+        } else {
+            alert("일치하는 텍스트가 없습니다.");
+        }
+    }
+
+
+    /**
+     * 배너 이미지 불러오기
+     */
+    function fetchBannerImages() {
+        var $banner_slider = $(".banner-swiper");
+        var $slider_container = $banner_slider.find(".swiper-wrapper");
+
+        $banner_slider.block();
+        $.ajax({
+            method: 'get',
+            url: "./slider.banner.json",
+            dataType: 'json',
+            success: function (res) {
+                var getList = res;
+                var getCount = res.length;
+
+                if (getCount <= 0) {
+                    return;
+                }
+
+                $slider_container.empty();
+                var arrSlide = [];
+                if (getCount > 0) {
+                    getList.forEach(function (e) {
+                        arrSlide.push(
+                            "<div class='swiper-slide'>" +
+                            "<img src='"+ e.imgPath +"' class=\"d-none d-lg-block\"/>" +
+                            "<img src='"+ e.imgPathMb +"' class=\"w-100 d-lg-none\"/>" +
+                            "</div>"
+                        );
+                    });
+                    bannerSwiper.appendSlide(arrSlide);
+                    bannerSwiper.update();
+                }
+            },
+            error: function (xhr) {
+                console.log(xhr.responseText);
+                alert("지금은 시스템 사정으로 인하여 요청하신 작업이 이루어지지 않았습니다.\n잠시후 다시 이용하세요.");
+            },
+            complete: function () {
+                $banner_slider.unblock();
+            }
+        });
     }
 </script>
 </body>

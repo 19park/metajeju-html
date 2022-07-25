@@ -234,13 +234,13 @@
     .modal-body form {
         max-width: 283px;
     }
-    #modal-check-winners.modal.show .modal-dialog {
+    #modal-check-winners.modal .modal-dialog {
         max-width: 620px;
     }
-    #modal-check-mileage.modal.show .modal-dialog {
+    #modal-check-mileage.modal .modal-dialog {
         max-width: 460px;
     }
-    #modal-event.modal.show .modal-dialog {
+    #modal-event.modal .modal-dialog {
         max-width: 100%;
     }
 
@@ -363,7 +363,7 @@
     #modal-event .modal-visual {
         flex: 0 0 410px;
     }
-    #modal-event.modal.show .modal-dialog {
+    #modal-event.modal .modal-dialog {
         max-width: 820px;
     }
 }
