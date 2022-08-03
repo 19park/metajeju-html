@@ -95,8 +95,8 @@
             <div class="square"><img src="./images/main/square.png" alt=""/></div>
         </div>
 
-        <div class="site-section__content" data-idx="0">
-            <div class="container-jt">
+        <div class="site-section__content">
+            <div class="container-jt" data-idx="0">
                 <div class="site-section__tabs">
                     <a href="#" data-idx="0">상상제주<br/>제페토</a>
                     <a href="#" data-idx="1">제이티<br/>페스티벌</a>
@@ -157,7 +157,15 @@
                             <a href="#" class="btn-gradient">상상제주로 여행</a>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            <div class="container-jt" data-idx="1">
+                <div class="site-section__tabs">
+                    <a href="#" data-idx="0">상상제주<br/>제페토</a>
+                    <a href="#" data-idx="1">제이티<br/>페스티벌</a>
+                    <a href="#" data-idx="2">제주 힙쟁이<br/>선발대회</a>
+                </div>
+                <div class="site-section__items">
                     <!-- tab content 02 //-->
                     <div class="site-section__item" data-idx="1">
                         <div class="site-section__item-title">
@@ -175,7 +183,15 @@
                             <a href="#" class="btn-gradient">페스티벌 참여</a>
                         </div>
                     </div>
-
+                </div>
+            </div>
+            <div class="container-jt" data-idx="2">
+                <div class="site-section__tabs">
+                    <a href="#" data-idx="0">상상제주<br/>제페토</a>
+                    <a href="#" data-idx="1">제이티<br/>페스티벌</a>
+                    <a href="#" data-idx="2">제주 힙쟁이<br/>선발대회</a>
+                </div>
+                <div class="site-section__items">
                     <!-- tab content 03 //-->
                     <div class="site-section__item" data-idx="2">
                         <div class="site-section__item-title">
@@ -477,9 +493,12 @@
         $third_section_tabs.find(">a").on("click", function (e) {
             e.preventDefault();
             var $this = $(this);
-            var getIdx= $this.data("idx");
+            var $index = $this.index();
 
-            $third_event_container.attr("data-idx", getIdx);
+            $("body, html").animate({
+                scrollTop: $third_event_container.find(".container-jt").eq($index).offset().top - $("header").outerHeight()
+                }, 1000
+            );
         });
 
         $(".collapse").on('hide.bs.collapse', function () {
