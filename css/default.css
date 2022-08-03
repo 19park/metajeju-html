@@ -192,6 +192,18 @@
 
 
 
+#modal-share {z-index: 1070;}
+#modal-share .modal-dialog-centered:before{height:auto;}
+#modal-share .modal-header { border-bottom: 1px solid #e9ecef; text-align: center; padding: 20px 0;}
+#modal-share .modal-header h3 {display:block;text-align: center;font-weight: 500;font-size: 1.6rem;margin: 0 auto;}
+#modal-share .modal-dialog {width: 415px;border-radius: 30px;background-color: #fff;}
+#modal-share .modal-content {width: 415px;border: 0;background-color: transparent;box-shadow: none !important;}
+#modal-share .container {display: flex;justify-content: center;padding: 20px 0 30px 0;}
+#modal-share .container a {margin: 0 15px;}
+#modal-share .modal-footer a {color:#db4126;display: block;text-align: center;font-size: 1.6rem;font-weight:500;margin: 0 auto;}
+.modal-backdrop+.modal-backdrop {z-index: 1060;}
+
+
 @media (min-width: 420px) {
     .site-mobile-menu .site-mobile-menu-header {
         font-size: 5vw;
